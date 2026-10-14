@@ -1,0 +1,2470 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SU Digital - Syed Muhammad Umer Portfolio &amp; Agency</title>
+  <meta name="description" content="Official portfolio and web development agency platform for Syed Muhammad Umer (SU Digital) - Web Developer, Financial Trader, and Aptech certified software engineer." />
+  <meta property="og:title" content="SU Digital - Syed Muhammad Umer Portfolio &amp; Agency" />
+  <meta property="og:description" content="Official portfolio and web development agency platform for Syed Muhammad Umer (SU Digital) - Web Developer, Financial Trader, and Aptech certified software engineer." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome 6 CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              base: '#0B0F17',
+              surface: '#111827',
+              card: '#131B2E',
+              border: '#1E293B',
+              neon: '#00FF87',
+              neonAlt: '#00E676',
+              cyan: '#38BDF8',
+              muted: '#94A3B8'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Custom Design Tokens & Neon Glow Utilities */
+    :root {
+      --neon-primary: #00FF87;
+      --neon-secondary: #00E676;
+      --bg-dark: #0B0F17;
+    }
+
+    body {
+      background-color: #0B0F17;
+      color: #F8FAFC;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Background Glow Effect */
+    .ambient-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      background: 
+        radial-gradient(circle at 15% 20%, rgba(0, 255, 135, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 85% 65%, rgba(56, 189, 248, 0.05) 0%, transparent 45%),
+        radial-gradient(circle at 50% 90%, rgba(0, 230, 118, 0.04) 0%, transparent 40%);
+    }
+
+    /* Subtle Grid Pattern */
+    .grid-pattern {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Glassmorphism Containers */
+    .glass-panel {
+      background: rgba(17, 24, 39, 0.75);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card {
+      background: rgba(19, 27, 46, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(0, 255, 135, 0.35);
+      box-shadow: 0 10px 30px -10px rgba(0, 255, 135, 0.15);
+    }
+
+    /* Glowing Hero Frame for Syed Muhammad Umer Profile */
+    .neon-frame {
+      box-shadow: 
+        0 0 0 1px rgba(0, 255, 135, 0.4),
+        0 0 25px rgba(0, 255, 135, 0.25),
+        inset 0 0 15px rgba(0, 255, 135, 0.15);
+    }
+
+    /* Button Glows */
+    .btn-neon-glow {
+      box-shadow: 0 0 20px rgba(0, 255, 135, 0.3);
+      transition: all 0.2s ease;
+    }
+    .btn-neon-glow:hover {
+      box-shadow: 0 0 30px rgba(0, 255, 135, 0.55);
+      transform: translateY(-1px);
+    }
+
+    /* Page View Transitions */
+    .page-view {
+      display: none;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+    }
+
+    .page-view.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0F17;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E293B;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00FF87;
+    }
+
+    /* Tabular figures for data integrity */
+    .tabular-num {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col relative selection:bg-emerald-400 selection:text-slate-900">
+
+  <!-- Background Ambience & Grid Pattern -->
+  <div class="ambient-glow"></div>
+  <div class="grid-pattern"></div>
+
+  <!-- Top Sticky Header: Strict 3-Zone Contract -->
+  <header class="sticky top-0 z-50 w-full glass-panel border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-8">
+      
+      <!-- Zone 1: Single-element Brand Lockup with SU Digital Neon Badge -->
+      <a href="#home" onclick="navigateTo('home'); return false;" class="flex items-center gap-3 group shrink-0">
+        <div class="relative w-11 h-11 rounded-full p-0.5 bg-gradient-to-tr from-emerald-500/80 via-emerald-400 to-cyan-400 shadow-[0_0_15px_rgba(0,255,135,0.35)] flex items-center justify-center overflow-hidden">
+          <img 
+            src="file_000000005424821197fdec5f31859ce8.png" 
+            alt="SU Digital Logo" 
+            id="nav-logo-badge"
+            class="w-full h-full object-contain rounded-full bg-[#0B0F17]"
+            onerror="this.onerror=null; this.src='logo.svg';"
+          />
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xl font-extrabold tracking-tight text-white group-hover:text-emerald-400 transition-colors whitespace-nowrap">
+            SU Digital
+          </span>
+          <span class="text-[11px] font-medium tracking-wider uppercase text-slate-400 whitespace-nowrap">
+            Syed Muhammad Umer
+          </span>
+        </div>
+      </a>
+
+      <!-- Zone 2: Single-line Text Navigation Links (Home, About, Services, Skills, Projects, Contact) -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+        <a href="#home" data-target="home" onclick="navigateTo('home'); return false;" class="nav-link text-emerald-400 transition-colors py-1 relative whitespace-nowrap">
+          Home
+          <span class="nav-indicator absolute -bottom-1 left-0 w-full h-[2px] bg-emerald-400 rounded-full"></span>
+        </a>
+        <a href="#about" data-target="about" onclick="navigateTo('about'); return false;" class="nav-link text-slate-300 hover:text-white transition-colors py-1 relative whitespace-nowrap">
+          About
+          <span class="nav-indicator absolute -bottom-1 left-0 w-full h-[2px] bg-emerald-400 rounded-full opacity-0"></span>
+        </a>
+        <a href="#services" data-target="services" onclick="navigateTo('services'); return false;" class="nav-link text-slate-300 hover:text-white transition-colors py-1 relative whitespace-nowrap">
+          Services
+          <span class="nav-indicator absolute -bottom-1 left-0 w-full h-[2px] bg-emerald-400 rounded-full opacity-0"></span>
+        </a>
+        <a href="#skills" data-target="skills" onclick="navigateTo('skills'); return false;" class="nav-link text-slate-300 hover:text-white transition-colors py-1 relative whitespace-nowrap">
+          Skills
+          <span class="nav-indicator absolute -bottom-1 left-0 w-full h-[2px] bg-emerald-400 rounded-full opacity-0"></span>
+        </a>
+        <a href="#projects" data-target="projects" onclick="navigateTo('projects'); return false;" class="nav-link text-slate-300 hover:text-white transition-colors py-1 relative whitespace-nowrap">
+          Projects
+          <span class="nav-indicator absolute -bottom-1 left-0 w-full h-[2px] bg-emerald-400 rounded-full opacity-0"></span>
+        </a>
+        <a href="#contact" data-target="contact" onclick="navigateTo('contact'); return false;" class="nav-link text-slate-300 hover:text-white transition-colors py-1 relative whitespace-nowrap">
+          Contact
+          <span class="nav-indicator absolute -bottom-1 left-0 w-full h-[2px] bg-emerald-400 rounded-full opacity-0"></span>
+        </a>
+      </nav>
+
+      <!-- Zone 3: Primary Action & Mobile Toggle -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a 
+          href="#contact" 
+          onclick="navigateTo('contact'); return false;" 
+          class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-slate-900 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-all btn-neon-glow whitespace-nowrap"
+        >
+          <span>Get In Touch</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button 
+          id="mobile-menu-btn" 
+          onclick="toggleMobileMenu()" 
+          aria-label="Toggle navigation menu" 
+          class="md:hidden p-2.5 text-slate-300 hover:text-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-lg bg-slate-800/60"
+        >
+          <i id="mobile-menu-icon" class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Slide-Down Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-[#0B0F17]/95 backdrop-blur-xl px-5 py-6 space-y-3">
+      <a href="#home" onclick="navigateTo('home'); toggleMobileMenu(false); return false;" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-emerald-400 bg-slate-900/60 font-semibold text-sm">
+        <span>Home</span>
+        <i class="fa-solid fa-chevron-right text-xs"></i>
+      </a>
+      <a href="#about" onclick="navigateTo('about'); toggleMobileMenu(false); return false;" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/40 font-medium text-sm">
+        <span>About Syed Muhammad Umer</span>
+        <i class="fa-solid fa-chevron-right text-xs"></i>
+      </a>
+      <a href="#services" onclick="navigateTo('services'); toggleMobileMenu(false); return false;" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/40 font-medium text-sm">
+        <span>Agency Services</span>
+        <i class="fa-solid fa-chevron-right text-xs"></i>
+      </a>
+      <a href="#skills" onclick="navigateTo('skills'); toggleMobileMenu(false); return false;" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/40 font-medium text-sm">
+        <span>Skills &amp; Tech Stack</span>
+        <i class="fa-solid fa-chevron-right text-xs"></i>
+      </a>
+      <a href="#projects" onclick="navigateTo('projects'); toggleMobileMenu(false); return false;" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/40 font-medium text-sm">
+        <span>8 Showcase Projects</span>
+        <i class="fa-solid fa-chevron-right text-xs"></i>
+      </a>
+      <a href="#contact" onclick="navigateTo('contact'); toggleMobileMenu(false); return false;" class="mobile-nav-link flex items-center justify-between px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-slate-900/40 font-medium text-sm">
+        <span>Contact &amp; Hire</span>
+        <i class="fa-solid fa-chevron-right text-xs"></i>
+      </a>
+      <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 px-2">
+        <span><i class="fa-solid fa-phone mr-1.5 text-emerald-400"></i> 03141114626</span>
+        <span><i class="fa-solid fa-location-dot mr-1.5 text-emerald-400"></i> Karachi, PK</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main View Container: Interactive Multi-Page SPA Views -->
+  <main class="flex-1 relative z-10">
+
+    <!-- ========================================== -->
+    <!-- VIEW 1: HOME PAGE                          -->
+    <!-- ========================================== -->
+    <section id="view-home" class="page-view active max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+      
+      <!-- Hero Split Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Column: Typographic Hierarchy & Actions -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Quiet Unboxed Kicker -->
+          <div class="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-emerald-400">
+            <span>SU Digital Agency</span>
+            <span aria-hidden="true" class="text-slate-600">·</span>
+            <span class="text-slate-300">Karachi, Pakistan</span>
+            <span aria-hidden="true" class="text-slate-600">·</span>
+            <span class="text-cyan-400">Global Deliveries</span>
+          </div>
+
+          <!-- Main Hero Headline -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white text-balance leading-tight">
+            Hello World, I'm <br />
+            <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+              Syed Muhammad Umer
+            </span>
+          </h1>
+
+          <!-- Role & Subtitle -->
+          <p class="text-lg sm:text-xl font-medium text-slate-200">
+            Founder of SU Digital Agency <span class="text-emerald-400">|</span> Web Developer &amp; Financial Trader
+          </p>
+
+          <!-- Core Value Proposition -->
+          <p class="text-base text-slate-400 max-w-2xl leading-relaxed">
+            Specializing in high-performance web applications, commercial portals, and futuristic glassmorphic interfaces. Aptech certified software engineering expertise combined with quantitative financial analysis and athlete-grade execution discipline.
+          </p>
+
+          <!-- Action Buttons Group (Max 3, fully functional) -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <button 
+              onclick="navigateTo('projects')" 
+              class="px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-slate-900 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-all btn-neon-glow flex items-center gap-2 whitespace-nowrap"
+            >
+              <i class="fa-solid fa-laptop-code"></i>
+              <span>Explore Work</span>
+            </button>
+            <button 
+              onclick="navigateTo('services')" 
+              class="px-6 py-3.5 text-sm font-semibold tracking-wide text-white bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 rounded-xl transition-all flex items-center gap-2 whitespace-nowrap"
+            >
+              <i class="fa-solid fa-cubes text-emerald-400"></i>
+              <span>View Services</span>
+            </button>
+            <button 
+              onclick="navigateTo('contact')" 
+              class="px-5 py-3.5 text-sm font-semibold tracking-wide text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-2 whitespace-nowrap"
+            >
+              <i class="fa-regular fa-paper-plane"></i>
+              <span>Get In Touch</span>
+            </button>
+          </div>
+
+          <!-- Direct Inbound Quick Metadata -->
+          <div class="pt-4 flex flex-wrap items-center gap-6 text-xs text-slate-400 border-t border-slate-800/80">
+            <a href="mailto:syedumer.digital@gmail.com" class="hover:text-emerald-400 transition-colors flex items-center gap-2">
+              <i class="fa-regular fa-envelope text-emerald-400"></i>
+              <span>syedumer.digital@gmail.com</span>
+            </a>
+            <a href="tel:03141114626" class="hover:text-emerald-400 transition-colors flex items-center gap-2">
+              <i class="fa-solid fa-phone text-emerald-400"></i>
+              <span class="tabular-num">03141114626</span>
+            </a>
+            <a href="https://wa.me/923141114626" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors flex items-center gap-2">
+              <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+              <span>WhatsApp Direct</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Profile Card with EXACT Uploaded Real Photo inside Glowing Neon Frame -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md">
+            
+            <!-- Background Ambient Glow behind card -->
+            <div class="absolute -inset-2 bg-gradient-to-tr from-emerald-500/20 via-cyan-500/10 to-transparent rounded-3xl blur-xl opacity-75"></div>
+            
+            <!-- Main Glass Card Container with Glowing Neon Ring / Frame -->
+            <div class="relative rounded-3xl p-3 glass-panel neon-frame overflow-hidden">
+              
+              <!-- Aspect Ratio Image Holder strictly displaying the user's uploaded photo -->
+              <div class="relative aspect-[4/5] rounded-2xl overflow-hidden bg-slate-900 border border-slate-800">
+                <img 
+                  src="IMG-20261012-WA0024.jpg" 
+                  alt="Syed Muhammad Umer - Founder of SU Digital" 
+                  id="hero-profile-image"
+                  class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-[1.02]"
+                  onerror="this.onerror=null; this.src='hero-fallback.svg';"
+                />
+
+                <!-- Scrim & Information Bar Overlay at Bottom -->
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5 text-white">
+                  <div class="flex items-center justify-between">
+                    <div>
+                      <h2 class="text-lg font-bold tracking-tight">Syed Muhammad Umer</h2>
+                      <p class="text-xs text-emerald-400 font-medium">Founder &amp; Lead Architect · SU Digital</p>
+                    </div>
+                    <div class="w-9 h-9 rounded-full bg-slate-900/80 border border-emerald-400/50 flex items-center justify-center text-emerald-400">
+                      <i class="fa-solid fa-terminal text-xs"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Live Status Ribbon (Clean unboxed text) -->
+                <div class="absolute top-4 left-4 bg-slate-900/85 backdrop-blur-md border border-emerald-400/40 rounded-lg px-3 py-1.5 text-xs font-semibold text-emerald-300 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>Available For Contract Projects</span>
+                </div>
+              </div>
+
+              <!-- Quick Local Photo Hot-Loader toggle helper (Client-side FileReader) -->
+              <div class="mt-3 px-2 flex items-center justify-between text-[11px] text-slate-400">
+                <span class="truncate">Photo: IMG-20261012-WA0024.jpg</span>
+                <label class="cursor-pointer text-emerald-400 hover:underline flex items-center gap-1 shrink-0">
+                  <i class="fa-solid fa-camera text-[10px]"></i>
+                  <span>Reload Image</span>
+                  <input type="file" id="local-photo-input" accept="image/*" class="hidden" onchange="previewUserPhoto(event)" />
+                </label>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Full-Width Credibility & Performance Strip Below Hero Split -->
+      <div class="mt-16 pt-8 border-t border-slate-800/80">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="glass-card p-5 rounded-2xl text-center">
+            <span class="block text-3xl font-extrabold text-white tabular-num">8+</span>
+            <span class="text-xs font-medium text-slate-400 mt-1 block">Flagship Enterprise Projects</span>
+          </div>
+          <div class="glass-card p-5 rounded-2xl text-center">
+            <span class="block text-3xl font-extrabold text-emerald-400 tabular-num">100%</span>
+            <span class="text-xs font-medium text-slate-400 mt-1 block">Pixel-Precision Code</span>
+          </div>
+          <div class="glass-card p-5 rounded-2xl text-center">
+            <span class="block text-3xl font-extrabold text-cyan-400 tabular-num">4+</span>
+            <span class="text-xs font-medium text-slate-400 mt-1 block">Years Software Engineering</span>
+          </div>
+          <div class="glass-card p-5 rounded-2xl text-center">
+            <span class="block text-3xl font-extrabold text-white tabular-num">BWF</span>
+            <span class="text-xs font-medium text-slate-400 mt-1 block">Air Badminton Athlete</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Agency Highlights Bento -->
+      <div class="mt-16 space-y-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-2xl font-bold tracking-tight text-white">What SU Digital Delivers</h2>
+            <p class="text-sm text-slate-400">Core specialized services ready for immediate deployment.</p>
+          </div>
+          <button onclick="navigateTo('services')" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5">
+            <span>Explore all services</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="glass-card p-6 rounded-2xl space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-lg">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <h3 class="text-base font-bold text-white">High-Speed Web Apps</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Ultra-responsive single-page applications and dashboards engineered with vanilla JavaScript, modern state handling, and zero bloat.
+            </p>
+          </div>
+          <div class="glass-card p-6 rounded-2xl space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-lg">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3 class="text-base font-bold text-white">Financial &amp; Trading Tech</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Domain expertise in market structures, charting workflows, algorithmic risk management, and quantitative interface design.
+            </p>
+          </div>
+          <div class="glass-card p-6 rounded-2xl space-y-3">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-lg">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <h3 class="text-base font-bold text-white">Glassmorphism UI/UX</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Sleek dark-mode aesthetic with vibrant neon green accents, subtle backdrop blurs, and premium interaction mechanics.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 2: ABOUT PAGE                         -->
+    <!-- ========================================== -->
+    <section id="view-about" class="page-view hidden-page max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-12">
+      
+      <!-- Section Header -->
+      <div class="space-y-3 max-w-3xl">
+        <div class="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-emerald-400">
+          <span>About The Founder</span>
+          <span aria-hidden="true" class="text-slate-600">·</span>
+          <span>Syed Muhammad Umer</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white text-balance">
+          Bridging Engineering Precision, Financial Markets &amp; Athletic Discipline.
+        </h1>
+        <p class="text-base text-slate-400 leading-relaxed">
+          I am Syed Muhammad Umer, Founder of SU Digital Agency based in Karachi, Pakistan. Trained at Aptech in professional software engineering, I combine full-stack development capability with active financial trading and competitive sports.
+        </p>
+      </div>
+
+      <!-- Bento Grid: Founder Profile & Philosophy -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        
+        <!-- Bento Card 1: Detailed Story (8 cols) -->
+        <div class="md:col-span-8 glass-card p-8 rounded-3xl space-y-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+              <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <div>
+              <h2 class="text-lg font-bold text-white">Full-Stack Web Architect &amp; Agency Founder</h2>
+              <p class="text-xs text-slate-400">Aptech Certified Software Engineering</p>
+            </div>
+          </div>
+          
+          <div class="space-y-4 text-sm text-slate-300 leading-relaxed">
+            <p>
+              My software engineering journey began with formal training at <strong class="text-white">Aptech</strong>, where I developed rigorous habits in semantic HTML5, modern CSS3 layouts, modular JavaScript (ES6+), and algorithmic Python programming. Over years of hands-on building, I established <strong class="text-emerald-400">SU Digital</strong> to give businesses and medical practices high-converting, resilient digital presences.
+            </p>
+            <p>
+              Beyond coding, I operate actively as a <strong class="text-white">Financial Trader</strong>, analyzing global market liquidity, forex, and cryptocurrency trends. This background instills extreme respect for risk management, latency minimization, and data accuracy—qualities that directly elevate the software I engineer.
+            </p>
+            <p>
+              When away from trading screens and IDEs, I compete as an active <strong class="text-white">BWF Air Badminton Athlete</strong>. Competitive sports foster the mental resilience, rapid tactical decision-making, and stamina required to run high-stakes software agency projects.
+            </p>
+          </div>
+
+          <!-- Unboxed Key Specs -->
+          <div class="pt-4 border-t border-slate-800 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
+            <div>
+              <span class="block text-slate-500 uppercase tracking-wider text-[10px]">Location</span>
+              <span class="text-white font-medium">Karachi, Pakistan</span>
+            </div>
+            <div>
+              <span class="block text-slate-500 uppercase tracking-wider text-[10px]">Education</span>
+              <span class="text-white font-medium">Aptech Certified</span>
+            </div>
+            <div>
+              <span class="block text-slate-500 uppercase tracking-wider text-[10px]">Athletics</span>
+              <span class="text-white font-medium">BWF Air Badminton</span>
+            </div>
+            <div>
+              <span class="block text-slate-500 uppercase tracking-wider text-[10px]">Experience</span>
+              <span class="text-white font-medium tabular-num">4+ Years</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento Card 2: Contact Card with Phone & Email (4 cols) -->
+        <div class="md:col-span-4 glass-card p-8 rounded-3xl space-y-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+              <i class="fa-solid fa-address-card"></i>
+            </div>
+            <h2 class="text-lg font-bold text-white">Direct Agency Contact</h2>
+            <p class="text-xs text-slate-400">Reach Syed Muhammad Umer directly for custom web builds and business consultations.</p>
+
+            <div class="space-y-3 pt-2 text-xs">
+              <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800 flex items-center gap-3">
+                <i class="fa-solid fa-phone text-emerald-400 text-sm"></i>
+                <div class="overflow-hidden">
+                  <span class="block text-slate-500 text-[10px] uppercase">Phone &amp; WhatsApp</span>
+                  <a href="tel:03141114626" class="text-white font-mono hover:text-emerald-400 transition-colors">03141114626</a>
+                </div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800 flex items-center gap-3">
+                <i class="fa-regular fa-envelope text-emerald-400 text-sm"></i>
+                <div class="overflow-hidden">
+                  <span class="block text-slate-500 text-[10px] uppercase">Official Email</span>
+                  <a href="mailto:syedumer.digital@gmail.com" class="text-white truncate block hover:text-emerald-400 transition-colors">syedumer.digital@gmail.com</a>
+                </div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800 flex items-center gap-3">
+                <i class="fa-solid fa-location-dot text-emerald-400 text-sm"></i>
+                <div>
+                  <span class="block text-slate-500 text-[10px] uppercase">Headquarters</span>
+                  <span class="text-white">Karachi, Sindh, Pakistan</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button 
+            onclick="navigateTo('contact')" 
+            class="w-full py-3 text-xs font-bold uppercase tracking-wider text-slate-900 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-all btn-neon-glow"
+          >
+            Start A Project
+          </button>
+        </div>
+
+        <!-- Bento Card 3: Financial Trading & Analytics (6 cols) -->
+        <div class="md:col-span-6 glass-card p-7 rounded-3xl space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+              <i class="fa-solid fa-arrow-trend-up"></i>
+            </div>
+            <div>
+              <h2 class="text-base font-bold text-white">Financial Markets &amp; Trading Strategy</h2>
+              <span class="text-xs text-slate-400">Quantitative Logic &amp; Risk Optimization</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Proficient in technical chart analysis, order flow, support/resistance structure, and algorithmic risk-reward execution. This mathematical mindset helps me design financial dashboards, crypto portfolios, and automated transaction logic with meticulous care.
+          </p>
+          <div class="flex items-center gap-2 text-xs text-slate-400 pt-2 border-t border-slate-800">
+            <span>Chart Analysis</span>
+            <span aria-hidden="true">·</span>
+            <span>Risk-to-Reward Modeling</span>
+            <span aria-hidden="true">·</span>
+            <span>Forex &amp; Crypto</span>
+          </div>
+        </div>
+
+        <!-- Bento Card 4: BWF Air Badminton Athlete (6 cols) -->
+        <div class="md:col-span-6 glass-card p-7 rounded-3xl space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+              <i class="fa-solid fa-medal"></i>
+            </div>
+            <div>
+              <h2 class="text-base font-bold text-white">BWF Air Badminton Athlete</h2>
+              <span class="text-xs text-slate-400">National &amp; Competitive Circuit</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Competing under Badminton World Federation (BWF) Air Badminton standards requires lightning agility, sharp strategic anticipation, and supreme endurance. The same grit translates to resolving tough production bugs and executing tight agency deadlines.
+          </p>
+          <div class="flex items-center gap-2 text-xs text-slate-400 pt-2 border-t border-slate-800">
+            <span>Tournament Stamina</span>
+            <span aria-hidden="true">·</span>
+            <span>Tactical Agility</span>
+            <span aria-hidden="true">·</span>
+            <span>Disciplined Teamwork</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 3: SERVICES PAGE                      -->
+    <!-- ========================================== -->
+    <section id="view-services" class="page-view hidden-page max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-12">
+      
+      <!-- Header -->
+      <div class="space-y-3 max-w-3xl">
+        <div class="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-emerald-400">
+          <span>Agency Services</span>
+          <span aria-hidden="true" class="text-slate-600">·</span>
+          <span>SU Digital Production</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white text-balance">
+          Tailored Web Engineering for Fast-Growing Brands &amp; Practices.
+        </h1>
+        <p class="text-base text-slate-400 leading-relaxed">
+          Each solution is custom-coded from the ground up with high performance, accessibility, SEO optimization, and bespoke interactive features.
+        </p>
+      </div>
+
+      <!-- 5 Comprehensive Service Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Service 1: Custom Web App Development -->
+        <div class="glass-card p-7 rounded-3xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <h2 class="text-xl font-bold text-white">01. Custom Web App Development</h2>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Bespoke single-page web applications, dynamic client portals, and responsive dashboards built with clean vanilla JavaScript, modern state architectures, and robust API integrations.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-400">
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
+                <span>Fast client-side tab &amp; route switching</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
+                <span>REST &amp; GraphQL integration ready</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
+                <span>Sub-second page load optimization</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500">Full-Stack SPA</span>
+            <button onclick="prefillContactService('Custom Web App Development')" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5">
+              <span>Inquire Service</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Service 2: Medical & Healthcare Portals -->
+        <div class="glass-card p-7 rounded-3xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl">
+              <i class="fa-solid fa-hospital-user"></i>
+            </div>
+            <h2 class="text-xl font-bold text-white">02. Medical &amp; Healthcare Portals</h2>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Doctor personal portfolios, clinical practice websites, patient appointment scheduling engines, and triage consultation booking flows designed with utmost trust and clarity.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-400">
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-cyan-400 text-[10px]"></i>
+                <span>Interactive doctor calendar &amp; slot selection</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-cyan-400 text-[10px]"></i>
+                <span>Patient intake &amp; history form engines</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-cyan-400 text-[10px]"></i>
+                <span>Mobile-first emergency quick dials</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500">Clinics &amp; Doctors</span>
+            <button onclick="prefillContactService('Medical & Healthcare Portals')" class="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5">
+              <span>Inquire Service</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Service 3: Commercial Cleaning Agency Platforms -->
+        <div class="glass-card p-7 rounded-3xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl">
+              <i class="fa-solid fa-broom"></i>
+            </div>
+            <h2 class="text-xl font-bold text-white">03. Cleaning Agency Platforms</h2>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              High-converting lead generation platforms with live square footage quote calculators, frequency discount selector engines, and dispatch scheduling for cleaning enterprises.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-400">
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
+                <span>Instant SQFT cost estimation sliders</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
+                <span>One-time vs. recurring contract logic</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
+                <span>Automated quote PDF &amp; WhatsApp dispatch</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500">Lead Generation</span>
+            <button onclick="prefillContactService('Commercial Cleaning Agency Platforms')" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5">
+              <span>Inquire Service</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Service 4: Real Estate & Architectural Web Apps -->
+        <div class="glass-card p-7 rounded-3xl flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl">
+              <i class="fa-solid fa-building"></i>
+            </div>
+            <h2 class="text-xl font-bold text-white">04. Real Estate &amp; Architecture</h2>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Luxury architectural portfolios and property listing showcases with dynamic bedroom/price filters, interactive floor plans, and immersive bento grid gallery layouts.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-400">
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-cyan-400 text-[10px]"></i>
+                <span>Interactive property search &amp; filter engine</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-cyan-400 text-[10px]"></i>
+                <span>Bento box design showcase layouts</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-cyan-400 text-[10px]"></i>
+                <span>High-resolution lightbox viewer integrations</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500">PropTech Showcase</span>
+            <button onclick="prefillContactService('Real Estate & Architectural Web Apps')" class="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5">
+              <span>Inquire Service</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Service 5: UI/UX Glassmorphism Design -->
+        <div class="glass-card p-7 rounded-3xl flex flex-col justify-between space-y-6 md:col-span-2 lg:col-span-2">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <h2 class="text-xl font-bold text-white">05. Modern UI/UX Glassmorphism &amp; Brand Systems</h2>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Futuristic dark slate and deep charcoal aesthetics punctuated by vibrant neon cyan and green accents (#00FF87 / #00E676). Crafted with zero-pill typography discipline, strict contrast hierarchies, and high-retention micro-interactions.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs text-slate-400">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
+                <span>Tailwind CSS custom theme configurations</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
+                <span>Multi-breakpoint responsive fluid layouts</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
+                <span>Anti-slop clean design &amp; zero broken UI states</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-emerald-400 text-[10px]"></i>
+                <span>Accessible WCAG AA contrast compliance</span>
+              </div>
+            </div>
+          </div>
+          <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-[11px] text-slate-500">Design System</span>
+            <button onclick="prefillContactService('UI/UX Glassmorphism Design')" class="text-xs font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5">
+              <span>Inquire Service</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Execution Process -->
+      <div class="p-8 rounded-3xl glass-card space-y-6">
+        <h2 class="text-lg font-bold text-white">Our 4-Step Production Methodology</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
+          <div class="space-y-2">
+            <span class="text-emerald-400 font-mono text-sm font-bold">01. Discovery</span>
+            <h3 class="text-white font-bold text-sm">Architecture &amp; Scope</h3>
+            <p class="text-slate-400">We map user journeys, state structures, API endpoints, and design tokens.</p>
+          </div>
+          <div class="space-y-2">
+            <span class="text-cyan-400 font-mono text-sm font-bold">02. Design</span>
+            <h3 class="text-white font-bold text-sm">Glassmorphic Prototype</h3>
+            <p class="text-slate-400">We sculpt pixel-perfect UI with dark-slate canvas and vibrant neon accents.</p>
+          </div>
+          <div class="space-y-2">
+            <span class="text-emerald-400 font-mono text-sm font-bold">03. Build</span>
+            <h3 class="text-white font-bold text-sm">Full-Stack Code</h3>
+            <p class="text-slate-400">Clean, performant HTML5, CSS3, ES6+ JavaScript, and responsive layouts.</p>
+          </div>
+          <div class="space-y-2">
+            <span class="text-cyan-400 font-mono text-sm font-bold">04. Launch</span>
+            <h3 class="text-white font-bold text-sm">Optimization &amp; Handover</h3>
+            <p class="text-slate-400">Lighthouse 95+ audits, mobile testing, and seamless client deployment.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 4: SKILLS PAGE                        -->
+    <!-- ========================================== -->
+    <section id="view-skills" class="page-view hidden-page max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-12">
+      
+      <!-- Section Header -->
+      <div class="space-y-3 max-w-3xl">
+        <div class="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-emerald-400">
+          <span>Core Competencies</span>
+          <span aria-hidden="true" class="text-slate-600">·</span>
+          <span>Syed Muhammad Umer</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white text-balance">
+          Technical Mastery &amp; Professional Versatility.
+        </h1>
+        <p class="text-base text-slate-400 leading-relaxed">
+          From frontend web frameworks and Python programming to quantitative financial trading and competitive badminton athletics.
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-800 text-xs">
+        <button onclick="filterSkills('all')" class="skill-tab-btn active px-4 py-2 rounded-lg font-semibold bg-emerald-400 text-slate-900 transition-colors whitespace-nowrap">
+          All Skills (8)
+        </button>
+        <button onclick="filterSkills('dev')" class="skill-tab-btn px-4 py-2 rounded-lg font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-colors whitespace-nowrap">
+          Development &amp; Code
+        </button>
+        <button onclick="filterSkills('business')" class="skill-tab-btn px-4 py-2 rounded-lg font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-colors whitespace-nowrap">
+          Trading &amp; Office
+        </button>
+        <button onclick="filterSkills('sports')" class="skill-tab-btn px-4 py-2 rounded-lg font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-colors whitespace-nowrap">
+          Athletics &amp; Sports
+        </button>
+      </div>
+
+      <!-- 8 Glowing Skill Cards with Hover Zoom Effects -->
+      <div id="skills-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Skill 1: HTML5 -->
+        <div class="skill-card glass-card p-6 rounded-2xl space-y-4 hover:scale-[1.03] hover:border-emerald-400/80 hover:shadow-[0_0_25px_rgba(0,255,135,0.25)] transition-all duration-300" data-category="dev">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-400 text-2xl">
+              <i class="fa-brands fa-html5"></i>
+            </div>
+            <span class="text-xs font-mono font-bold text-emerald-400 tabular-num">98%</span>
+          </div>
+          <div>
+            <h2 class="text-base font-bold text-white">HTML5</h2>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              Semantic structure, WCAG accessibility, SEO microdata, and clean document outlines.
+            </p>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-emerald-400 to-teal-300 h-full rounded-full" style="width: 98%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 2: CSS3 & Style.css -->
+        <div class="skill-card glass-card p-6 rounded-2xl space-y-4 hover:scale-[1.03] hover:border-cyan-400/80 hover:shadow-[0_0_25px_rgba(56,189,248,0.25)] transition-all duration-300" data-category="dev">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xl">
+              <i class="fa-brands fa-css3-alt"></i>
+            </div>
+            <span class="text-xs font-mono font-bold text-cyan-400 tabular-num">95%</span>
+          </div>
+          <div>
+            <h2 class="text-base font-bold text-white">CSS3 &amp; Style.css</h2>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              Tailwind CSS, glassmorphism, flexbox/grid architecture, and keyframe animations.
+            </p>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-cyan-400 to-blue-400 h-full rounded-full" style="width: 95%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 3: JavaScript (ES6+) -->
+        <div class="skill-card glass-card p-6 rounded-2xl space-y-4 hover:scale-[1.03] hover:border-yellow-400/80 hover:shadow-[0_0_25px_rgba(250,204,21,0.25)] transition-all duration-300" data-category="dev">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-xl bg-yellow-500/10 border border-yellow-500/30 flex items-center justify-center text-yellow-400 text-2xl">
+              <i class="fa-brands fa-js"></i>
+            </div>
+            <span class="text-xs font-mono font-bold text-yellow-400 tabular-num">92%</span>
+          </div>
+          <div>
+            <h2 class="text-base font-bold text-white">JavaScript (ES6+)</h2>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              Vanilla DOM manipulation, asynchronous promises, modular state, and client routing.
+            </p>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-yellow-400 to-amber-300 h-full rounded-full" style="width: 92%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 4: Python Programming -->
+        <div class="skill-card glass-card p-6 rounded-2xl space-y-4 hover:scale-[1.03] hover:border-emerald-400/80 hover:shadow-[0_0_25px_rgba(0,255,135,0.25)] transition-all duration-300" data-category="dev">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl">
+              <i class="fa-brands fa-python"></i>
+            </div>
+            <span class="text-xs font-mono font-bold text-emerald-400 tabular-num">88%</span>
+          </div>
+          <div>
+            <h2 class="text-base font-bold text-white">Python Programming</h2>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              Automation scripts, data extraction, backend logic, and financial modeling algorithms.
+            </p>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-emerald-400 to-teal-400 h-full rounded-full" style="width: 88%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 5: Web Development -->
+        <div class="skill-card glass-card p-6 rounded-2xl space-y-4 hover:scale-[1.03] hover:border-cyan-400/80 hover:shadow-[0_0_25px_rgba(56,189,248,0.25)] transition-all duration-300" data-category="dev">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <span class="text-xs font-mono font-bold text-cyan-400 tabular-num">96%</span>
+          </div>
+          <div>
+            <h2 class="text-base font-bold text-white">Web Development</h2>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              End-to-end architecture, mobile responsiveness, Lighthouse optimization, and hosting.
+            </p>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-cyan-400 to-emerald-400 h-full rounded-full" style="width: 96%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 6: Financial Trading -->
+        <div class="skill-card glass-card p-6 rounded-2xl space-y-4 hover:scale-[1.03] hover:border-emerald-400/80 hover:shadow-[0_0_25px_rgba(0,255,135,0.25)] transition-all duration-300" data-category="business">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl">
+              <i class="fa-solid fa-chart-candlestick"></i>
+            </div>
+            <span class="text-xs font-mono font-bold text-emerald-400 tabular-num">90%</span>
+          </div>
+          <div>
+            <h2 class="text-base font-bold text-white">Financial Trading</h2>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              Forex &amp; crypto technical analysis, risk management, liquidity strategies, and chart reading.
+            </p>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-emerald-400 to-green-500 h-full rounded-full" style="width: 90%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 7: MS Office Suite -->
+        <div class="skill-card glass-card p-6 rounded-2xl space-y-4 hover:scale-[1.03] hover:border-slate-400/80 hover:shadow-[0_0_25px_rgba(148,163,184,0.2)] transition-all duration-300" data-category="business">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-xl bg-slate-700/30 border border-slate-600 flex items-center justify-center text-slate-300 text-2xl">
+              <i class="fa-solid fa-file-excel"></i>
+            </div>
+            <span class="text-xs font-mono font-bold text-slate-300 tabular-num">94%</span>
+          </div>
+          <div>
+            <h2 class="text-base font-bold text-white">MS Office Suite</h2>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              Advanced Excel modeling, complex formulas, PowerPoint investor decks, and Word reports.
+            </p>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-slate-400 to-slate-200 h-full rounded-full" style="width: 94%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 8: BWF Air Badminton Sports -->
+        <div class="skill-card glass-card p-6 rounded-2xl space-y-4 hover:scale-[1.03] hover:border-emerald-400/80 hover:shadow-[0_0_25px_rgba(0,255,135,0.25)] transition-all duration-300" data-category="sports">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl">
+              <i class="fa-solid fa-person-running"></i>
+            </div>
+            <span class="text-xs font-mono font-bold text-emerald-400 tabular-num">Athlete</span>
+          </div>
+          <div>
+            <h2 class="text-base font-bold text-white">BWF Air Badminton</h2>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              Competitive national circuit athlete, high-endurance stamina, agility, and tactical match discipline.
+            </p>
+          </div>
+          <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-emerald-400 via-cyan-400 to-teal-300 h-full rounded-full" style="width: 95%"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 5: PROJECTS PAGE (8 Showcases)        -->
+    <!-- ========================================== -->
+    <section id="view-projects" class="page-view hidden-page max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-12">
+      
+      <!-- Section Header -->
+      <div class="space-y-3 max-w-3xl">
+        <div class="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-emerald-400">
+          <span>Client Portfolio &amp; Agency Showcases</span>
+          <span aria-hidden="true" class="text-slate-600">·</span>
+          <span>8 Complete Real-World Builds</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white text-balance">
+          Engineered for Real Clients, High Load &amp; Conversion.
+        </h1>
+        <p class="text-base text-slate-400 leading-relaxed">
+          Explore all 8 flagship deployments covering dark-mode cyber gaming, e-commerce engines, healthcare portals, real estate, and agency infrastructure.
+        </p>
+      </div>
+
+      <!-- Project Filter Bar (Interactive Controls) -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-800 text-xs">
+        <button onclick="filterProjects('all')" class="project-filter-btn active px-4 py-2 rounded-lg font-semibold bg-emerald-400 text-slate-900 transition-colors whitespace-nowrap">
+          All Projects (8)
+        </button>
+        <button onclick="filterProjects('webapps')" class="project-filter-btn px-4 py-2 rounded-lg font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-colors whitespace-nowrap">
+          Web Apps &amp; Games
+        </button>
+        <button onclick="filterProjects('commercial')" class="project-filter-btn px-4 py-2 rounded-lg font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-colors whitespace-nowrap">
+          Commercial &amp; Booking
+        </button>
+        <button onclick="filterProjects('specialized')" class="project-filter-btn px-4 py-2 rounded-lg font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-colors whitespace-nowrap">
+          Specialized UI &amp; PropTech
+        </button>
+      </div>
+
+      <!-- 8-Project Showcase Grid -->
+      <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        
+        <!-- PROJECT 1: Gaming Platform Interface -->
+        <div class="project-card glass-card rounded-3xl overflow-hidden flex flex-col justify-between" data-category="webapps">
+          <div>
+            <!-- Visual Graphic Mockup Container -->
+            <div class="h-48 w-full bg-gradient-to-tr from-slate-950 via-slate-900 to-emerald-950/40 p-6 flex flex-col justify-between border-b border-slate-800 relative overflow-hidden group">
+              <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-emerald-500/10 blur-2xl group-hover:bg-emerald-500/20 transition-all"></div>
+              <div class="flex items-center justify-between text-xs text-slate-400 relative z-10">
+                <span class="font-mono text-emerald-400">#01 · ESPORTS HUB</span>
+                <span>Web Apps</span>
+              </div>
+              <div class="relative z-10">
+                <i class="fa-solid fa-gamepad text-3xl text-emerald-400 mb-2"></i>
+                <h2 class="text-xl font-bold text-white">Gaming Platform Interface</h2>
+              </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-6 space-y-4">
+              <!-- Unboxed Metadata -->
+              <div class="flex items-center gap-2 text-xs text-slate-400">
+                <span>Cyber Tournament Hub</span>
+                <span aria-hidden="true">·</span>
+                <span>Live Scoreboards</span>
+                <span aria-hidden="true">·</span>
+                <span>Match Brackets</span>
+              </div>
+
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Futuristic dark-mode tournament hub for competitive gaming leagues. Features real-time bracket tracking, player statistics, match countdown timers, and team roster profiles.
+              </p>
+
+              <!-- Tech tags unboxed with separators -->
+              <div class="text-[11px] font-mono text-emerald-400 flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-800/80">
+                <span>HTML5</span>
+                <span class="text-slate-600">/</span>
+                <span>CSS3 Glassmorphism</span>
+                <span class="text-slate-600">/</span>
+                <span>Vanilla JS</span>
+                <span class="text-slate-600">/</span>
+                <span>Live Scores</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 pb-6 pt-2 flex items-center justify-between gap-3">
+            <button onclick="openProjectModal(1)" class="w-full py-2.5 text-xs font-semibold text-slate-200 hover:text-white bg-slate-800/80 hover:bg-slate-700/80 rounded-xl transition-all flex items-center justify-center gap-2">
+              <i class="fa-regular fa-eye text-emerald-400"></i>
+              <span>View Case Study</span>
+            </button>
+            <button onclick="openProjectDemo(1)" class="w-full py-2.5 text-xs font-bold text-slate-900 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-all flex items-center justify-center gap-2 btn-neon-glow">
+              <i class="fa-solid fa-play"></i>
+              <span>Interactive Preview</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PROJECT 2: Personal Portfolio & Agency Platform -->
+        <div class="project-card glass-card rounded-3xl overflow-hidden flex flex-col justify-between" data-category="specialized">
+          <div>
+            <div class="h-48 w-full bg-gradient-to-tr from-slate-950 via-slate-900 to-cyan-950/40 p-6 flex flex-col justify-between border-b border-slate-800 relative overflow-hidden group">
+              <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-cyan-500/10 blur-2xl group-hover:bg-cyan-500/20 transition-all"></div>
+              <div class="flex items-center justify-between text-xs text-slate-400 relative z-10">
+                <span class="font-mono text-cyan-400">#02 · AGENCY FLAGSHIP</span>
+                <span>Specialized UI</span>
+              </div>
+              <div class="relative z-10">
+                <i class="fa-solid fa-laptop-code text-3xl text-cyan-400 mb-2"></i>
+                <h2 class="text-xl font-bold text-white">SU Digital Agency Platform</h2>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <div class="flex items-center gap-2 text-xs text-slate-400">
+                <span>Multi-Page SPA</span>
+                <span aria-hidden="true">·</span>
+                <span>Glassmorphism</span>
+                <span aria-hidden="true">·</span>
+                <span>Dynamic JS Routing</span>
+              </div>
+
+              <p class="text-xs text-slate-300 leading-relaxed">
+                The flagship agency portfolio for Syed Muhammad Umer. Built inside a single standalone structure with zero page reloads, neon green glow states, and interactive view switching.
+              </p>
+
+              <div class="text-[11px] font-mono text-cyan-400 flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-800/80">
+                <span>Vanilla JS</span>
+                <span class="text-slate-600">/</span>
+                <span>Tailwind CSS</span>
+                <span class="text-slate-600">/</span>
+                <span>FontAwesome 6</span>
+                <span class="text-slate-600">/</span>
+                <span>History Hash</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 pb-6 pt-2 flex items-center justify-between gap-3">
+            <button onclick="openProjectModal(2)" class="w-full py-2.5 text-xs font-semibold text-slate-200 hover:text-white bg-slate-800/80 hover:bg-slate-700/80 rounded-xl transition-all flex items-center justify-center gap-2">
+              <i class="fa-regular fa-eye text-cyan-400"></i>
+              <span>View Case Study</span>
+            </button>
+            <button onclick="openProjectDemo(2)" class="w-full py-2.5 text-xs font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300 rounded-xl transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-play"></i>
+              <span>Interactive Preview</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PROJECT 3: Restaurant Web App -->
+        <div class="project-card glass-card rounded-3xl overflow-hidden flex flex-col justify-between" data-category="commercial">
+          <div>
+            <div class="h-48 w-full bg-gradient-to-tr from-slate-950 via-slate-900 to-amber-950/40 p-6 flex flex-col justify-between border-b border-slate-800 relative overflow-hidden group">
+              <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-amber-500/10 blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
+              <div class="flex items-center justify-between text-xs text-slate-400 relative z-10">
+                <span class="font-mono text-amber-400">#03 · HOSPITALITY</span>
+                <span>Commercial &amp; Booking</span>
+              </div>
+              <div class="relative z-10">
+                <i class="fa-solid fa-utensils text-3xl text-amber-400 mb-2"></i>
+                <h2 class="text-xl font-bold text-white">Restaurant Web App</h2>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <div class="flex items-center gap-2 text-xs text-slate-400">
+                <span>Luxury Digital Menu</span>
+                <span aria-hidden="true">·</span>
+                <span>Table Booking Engine</span>
+                <span aria-hidden="true">·</span>
+                <span>Dietary Filters</span>
+              </div>
+
+              <p class="text-xs text-slate-300 leading-relaxed">
+                High-end dining platform with dietary categorized culinary menus, chef's reserve specials, party-size calendar reservations, and automated confirmation summaries.
+              </p>
+
+              <div class="text-[11px] font-mono text-amber-400 flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-800/80">
+                <span>Interactive Menu</span>
+                <span class="text-slate-600">/</span>
+                <span>Date &amp; Time Picker</span>
+                <span class="text-slate-600">/</span>
+                <span>Party Counter</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 pb-6 pt-2 flex items-center justify-between gap-3">
+            <button onclick="openProjectModal(3)" class="w-full py-2.5 text-xs font-semibold text-slate-200 hover:text-white bg-slate-800/80 hover:bg-slate-700/80 rounded-xl transition-all flex items-center justify-center gap-2">
+              <i class="fa-regular fa-eye text-amber-400"></i>
+              <span>View Case Study</span>
+            </button>
+            <button onclick="openProjectDemo(3)" class="w-full py-2.5 text-xs font-bold text-slate-900 bg-amber-400 hover:bg-amber-300 rounded-xl transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-play"></i>
+              <span>Interactive Preview</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PROJECT 4: Nexus E-Commerce Store -->
+        <div class="project-card glass-card rounded-3xl overflow-hidden flex flex-col justify-between" data-category="webapps">
+          <div>
+            <div class="h-48 w-full bg-gradient-to-tr from-slate-950 via-slate-900 to-purple-950/40 p-6 flex flex-col justify-between border-b border-slate-800 relative overflow-hidden group">
+              <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-purple-500/10 blur-2xl group-hover:bg-purple-500/20 transition-all"></div>
+              <div class="flex items-center justify-between text-xs text-slate-400 relative z-10">
+                <span class="font-mono text-purple-400">#04 · RETAIL ENGINE</span>
+                <span>Web Apps</span>
+              </div>
+              <div class="relative z-10">
+                <i class="fa-solid fa-headphones text-3xl text-purple-400 mb-2"></i>
+                <h2 class="text-xl font-bold text-white">Nexus E-Commerce Store</h2>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <div class="flex items-center gap-2 text-xs text-slate-400">
+                <span>Audio &amp; Wearables</span>
+                <span aria-hidden="true">·</span>
+                <span>Live Cart Drawer</span>
+                <span aria-hidden="true">·</span>
+                <span>Instant Checkout</span>
+              </div>
+
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Futuristic electronics storefront with product variant pickers, audio frequency graphs, client-side cart drawer, real-time total calculator, and promo code engine.
+              </p>
+
+              <div class="text-[11px] font-mono text-purple-400 flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-800/80">
+                <span>Cart State</span>
+                <span class="text-slate-600">/</span>
+                <span>Variant Matrix</span>
+                <span class="text-slate-600">/</span>
+                <span>Local Storage</span>
+                <span class="text-slate-600">/</span>
+                <span>Stripe UI</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 pb-6 pt-2 flex items-center justify-between gap-3">
+            <button onclick="openProjectModal(4)" class="w-full py-2.5 text-xs font-semibold text-slate-200 hover:text-white bg-slate-800/80 hover:bg-slate-700/80 rounded-xl transition-all flex items-center justify-center gap-2">
+              <i class="fa-regular fa-eye text-purple-400"></i>
+              <span>View Case Study</span>
+            </button>
+            <button onclick="openProjectDemo(4)" class="w-full py-2.5 text-xs font-bold text-slate-900 bg-purple-400 hover:bg-purple-300 rounded-xl transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-play"></i>
+              <span>Interactive Preview</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PROJECT 5: Luxury Real Estate Showcase -->
+        <div class="project-card glass-card rounded-3xl overflow-hidden flex flex-col justify-between" data-category="specialized">
+          <div>
+            <div class="h-48 w-full bg-gradient-to-tr from-slate-950 via-slate-900 to-emerald-950/40 p-6 flex flex-col justify-between border-b border-slate-800 relative overflow-hidden group">
+              <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-emerald-500/10 blur-2xl group-hover:bg-emerald-500/20 transition-all"></div>
+              <div class="flex items-center justify-between text-xs text-slate-400 relative z-10">
+                <span class="font-mono text-emerald-400">#05 · PROPTECH</span>
+                <span>Specialized UI</span>
+              </div>
+              <div class="relative z-10">
+                <i class="fa-solid fa-house-chimney-window text-3xl text-emerald-400 mb-2"></i>
+                <h2 class="text-xl font-bold text-white">Luxury Real Estate Showcase</h2>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <div class="flex items-center gap-2 text-xs text-slate-400">
+                <span>Property Listings</span>
+                <span aria-hidden="true">·</span>
+                <span>Dynamic Filters</span>
+                <span aria-hidden="true">·</span>
+                <span>Floor Plans</span>
+              </div>
+
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Architectural property marketplace featuring bedroom filters, price range sliders, high-definition gallery viewing modals, and direct agent inquiry buttons.
+              </p>
+
+              <div class="text-[11px] font-mono text-emerald-400 flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-800/80">
+                <span>Filter Engine</span>
+                <span class="text-slate-600">/</span>
+                <span>Interactive Cards</span>
+                <span class="text-slate-600">/</span>
+                <span>Mortgage Calculator</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 pb-6 pt-2 flex items-center justify-between gap-3">
+            <button onclick="openProjectModal(5)" class="w-full py-2.5 text-xs font-semibold text-slate-200 hover:text-white bg-slate-800/80 hover:bg-slate-700/80 rounded-xl transition-all flex items-center justify-center gap-2">
+              <i class="fa-regular fa-eye text-emerald-400"></i>
+              <span>View Case Study</span>
+            </button>
+            <button onclick="openProjectDemo(5)" class="w-full py-2.5 text-xs font-bold text-slate-900 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-all flex items-center justify-center gap-2 btn-neon-glow">
+              <i class="fa-solid fa-play"></i>
+              <span>Interactive Preview</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PROJECT 6: Modern Architecture & Interior Design Studio -->
+        <div class="project-card glass-card rounded-3xl overflow-hidden flex flex-col justify-between" data-category="specialized">
+          <div>
+            <div class="h-48 w-full bg-gradient-to-tr from-slate-950 via-slate-900 to-cyan-950/40 p-6 flex flex-col justify-between border-b border-slate-800 relative overflow-hidden group">
+              <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-cyan-500/10 blur-2xl group-hover:bg-cyan-500/20 transition-all"></div>
+              <div class="flex items-center justify-between text-xs text-slate-400 relative z-10">
+                <span class="font-mono text-cyan-400">#06 · ARCHITECTURE</span>
+                <span>Specialized UI</span>
+              </div>
+              <div class="relative z-10">
+                <i class="fa-solid fa-compass-drafting text-3xl text-cyan-400 mb-2"></i>
+                <h2 class="text-xl font-bold text-white">Architecture &amp; Interior Studio</h2>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <div class="flex items-center gap-2 text-xs text-slate-400">
+                <span>Bento Grid Layout</span>
+                <span aria-hidden="true">·</span>
+                <span>Material Palettes</span>
+                <span aria-hidden="true">·</span>
+                <span>Minimal Typography</span>
+              </div>
+
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Clean editorial architectural studio showcase with bento statistics, blueprint blueprints inspection, space planning metrics, and consultation booking.
+              </p>
+
+              <div class="text-[11px] font-mono text-cyan-400 flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-800/80">
+                <span>Bento Architecture</span>
+                <span class="text-slate-600">/</span>
+                <span>Material Spec Sheet</span>
+                <span class="text-slate-600">/</span>
+                <span>Editorial Type</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 pb-6 pt-2 flex items-center justify-between gap-3">
+            <button onclick="openProjectModal(6)" class="w-full py-2.5 text-xs font-semibold text-slate-200 hover:text-white bg-slate-800/80 hover:bg-slate-700/80 rounded-xl transition-all flex items-center justify-center gap-2">
+              <i class="fa-regular fa-eye text-cyan-400"></i>
+              <span>View Case Study</span>
+            </button>
+            <button onclick="openProjectDemo(6)" class="w-full py-2.5 text-xs font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300 rounded-xl transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-play"></i>
+              <span>Interactive Preview</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PROJECT 7: Medical Doctor's Practice & Booking Portal -->
+        <div class="project-card glass-card rounded-3xl overflow-hidden flex flex-col justify-between" data-category="commercial">
+          <div>
+            <div class="h-48 w-full bg-gradient-to-tr from-slate-950 via-slate-900 to-teal-950/40 p-6 flex flex-col justify-between border-b border-slate-800 relative overflow-hidden group">
+              <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-teal-500/10 blur-2xl group-hover:bg-teal-500/20 transition-all"></div>
+              <div class="flex items-center justify-between text-xs text-slate-400 relative z-10">
+                <span class="font-mono text-teal-400">#07 · HEALTHCARE</span>
+                <span>Commercial &amp; Booking</span>
+              </div>
+              <div class="relative z-10">
+                <i class="fa-solid fa-stethoscope text-3xl text-teal-400 mb-2"></i>
+                <h2 class="text-xl font-bold text-white">Doctor's Practice &amp; Booking</h2>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <div class="flex items-center gap-2 text-xs text-slate-400">
+                <span>Appointment Scheduling</span>
+                <span aria-hidden="true">·</span>
+                <span>Patient Triage</span>
+                <span aria-hidden="true">·</span>
+                <span>Credentials</span>
+              </div>
+
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Specialized medical portal for private clinics. Features time slot selection, specialty consultations, verified doctor credentials, and HIPAA-friendly patient intake forms.
+              </p>
+
+              <div class="text-[11px] font-mono text-teal-400 flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-800/80">
+                <span>Slot Picker</span>
+                <span class="text-slate-600">/</span>
+                <span>Triage Logic</span>
+                <span class="text-slate-600">/</span>
+                <span>Telemed Integration</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 pb-6 pt-2 flex items-center justify-between gap-3">
+            <button onclick="openProjectModal(7)" class="w-full py-2.5 text-xs font-semibold text-slate-200 hover:text-white bg-slate-800/80 hover:bg-slate-700/80 rounded-xl transition-all flex items-center justify-center gap-2">
+              <i class="fa-regular fa-eye text-teal-400"></i>
+              <span>View Case Study</span>
+            </button>
+            <button onclick="openProjectDemo(7)" class="w-full py-2.5 text-xs font-bold text-slate-900 bg-teal-400 hover:bg-teal-300 rounded-xl transition-all flex items-center justify-center gap-2">
+              <i class="fa-solid fa-play"></i>
+              <span>Interactive Preview</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PROJECT 8: Commercial Cleaning Agency Platform -->
+        <div class="project-card glass-card rounded-3xl overflow-hidden flex flex-col justify-between" data-category="commercial">
+          <div>
+            <div class="h-48 w-full bg-gradient-to-tr from-slate-950 via-slate-900 to-emerald-950/40 p-6 flex flex-col justify-between border-b border-slate-800 relative overflow-hidden group">
+              <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-emerald-500/10 blur-2xl group-hover:bg-emerald-500/20 transition-all"></div>
+              <div class="flex items-center justify-between text-xs text-slate-400 relative z-10">
+                <span class="font-mono text-emerald-400">#08 · SERVICE AUTOMATION</span>
+                <span>Commercial &amp; Booking</span>
+              </div>
+              <div class="relative z-10">
+                <i class="fa-solid fa-spray-can-sparkles text-3xl text-emerald-400 mb-2"></i>
+                <h2 class="text-xl font-bold text-white">Commercial Cleaning Agency</h2>
+              </div>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <div class="flex items-center gap-2 text-xs text-slate-400">
+                <span>Quote Calculator</span>
+                <span aria-hidden="true">·</span>
+                <span>Frequency Discounts</span>
+                <span aria-hidden="true">·</span>
+                <span>Instant Booking</span>
+              </div>
+
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Commercial enterprise cleaning platform with live square footage slider, recurring frequency price calculators (weekly, bi-weekly, monthly), and dispatch booking.
+              </p>
+
+              <div class="text-[11px] font-mono text-emerald-400 flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-800/80">
+                <span>SQFT Slider</span>
+                <span class="text-slate-600">/</span>
+                <span>Formula Pricing</span>
+                <span class="text-slate-600">/</span>
+                <span>Instant Estimate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-6 pb-6 pt-2 flex items-center justify-between gap-3">
+            <button onclick="openProjectModal(8)" class="w-full py-2.5 text-xs font-semibold text-slate-200 hover:text-white bg-slate-800/80 hover:bg-slate-700/80 rounded-xl transition-all flex items-center justify-center gap-2">
+              <i class="fa-regular fa-eye text-emerald-400"></i>
+              <span>View Case Study</span>
+            </button>
+            <button onclick="openProjectDemo(8)" class="w-full py-2.5 text-xs font-bold text-slate-900 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-all flex items-center justify-center gap-2 btn-neon-glow">
+              <i class="fa-solid fa-play"></i>
+              <span>Interactive Preview</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW 6: CONTACT PAGE                       -->
+    <!-- ========================================== -->
+    <section id="view-contact" class="page-view hidden-page max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 space-y-12">
+      
+      <!-- Section Header -->
+      <div class="space-y-3 max-w-3xl">
+        <div class="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-emerald-400">
+          <span>Inquiries &amp; Collaboration</span>
+          <span aria-hidden="true" class="text-slate-600">·</span>
+          <span>SU Digital Agency</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white text-balance">
+          Let's Build Something Great Together.
+        </h1>
+        <p class="text-base text-slate-400 leading-relaxed">
+          Have an upcoming web project, agency overhaul, medical portal, or trading interface? Reach out directly to Syed Muhammad Umer for an estimate and consultation.
+        </p>
+      </div>
+
+      <!-- Contact Layout Split -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Left Column: Direct Contact Info & Verification -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <div class="glass-card p-7 rounded-3xl space-y-6">
+            <h2 class="text-lg font-bold text-white">Direct Agency Channels</h2>
+            <p class="text-xs text-slate-300">Fast response guaranteed within 2–4 hours during business days.</p>
+
+            <div class="space-y-4 text-xs">
+              
+              <!-- Phone -->
+              <a href="tel:03141114626" class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 flex items-center gap-4 transition-all group">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                  <span class="block text-slate-500 text-[10px] uppercase font-semibold">Direct Phone Call</span>
+                  <span class="text-white font-mono text-sm font-semibold tabular-num">03141114626</span>
+                </div>
+              </a>
+
+              <!-- WhatsApp Direct -->
+              <a href="https://wa.me/923141114626" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 flex items-center gap-4 transition-all group">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                  <i class="fa-brands fa-whatsapp text-lg"></i>
+                </div>
+                <div>
+                  <span class="block text-slate-500 text-[10px] uppercase font-semibold">Instant WhatsApp Chat</span>
+                  <span class="text-white font-medium text-sm">+92 314 1114626</span>
+                </div>
+              </a>
+
+              <!-- Email -->
+              <a href="mailto:syedumer.digital@gmail.com" class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 flex items-center gap-4 transition-all group">
+                <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+                  <i class="fa-regular fa-envelope"></i>
+                </div>
+                <div class="overflow-hidden">
+                  <span class="block text-slate-500 text-[10px] uppercase font-semibold">Official Email Address</span>
+                  <span class="text-white font-medium text-sm truncate block">syedumer.digital@gmail.com</span>
+                </div>
+              </a>
+
+              <!-- Location -->
+              <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                  <span class="block text-slate-500 text-[10px] uppercase font-semibold">Operations Base</span>
+                  <span class="text-white font-medium text-sm">Karachi, Sindh, Pakistan</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Working Hours & Availability -->
+            <div class="pt-4 border-t border-slate-800 text-xs text-slate-400 space-y-1">
+              <div class="flex items-center justify-between">
+                <span>Working Days:</span>
+                <span class="text-white font-medium">Monday – Saturday</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span>Client Consultations:</span>
+                <span class="text-emerald-400 font-medium">10:00 AM – 8:00 PM (PKT)</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Right Column: Interactive Working Contact Form -->
+        <div class="lg:col-span-7">
+          <div class="glass-card p-8 rounded-3xl space-y-6">
+            <div>
+              <h2 class="text-xl font-bold text-white">Send A Project Brief</h2>
+              <p class="text-xs text-slate-400">Fill in the specifications below and Syed Muhammad Umer will respond promptly.</p>
+            </div>
+
+            <form id="agency-contact-form" onsubmit="handleContactSubmit(event)" class="space-y-5">
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <!-- Name -->
+                <div class="space-y-1.5">
+                  <label for="contact-name" class="block text-xs font-semibold uppercase tracking-wider text-slate-300">
+                    Your Name <span class="text-emerald-400">*</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    id="contact-name" 
+                    required 
+                    placeholder="e.g. Alex Henderson" 
+                    class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-colors"
+                  />
+                </div>
+
+                <!-- Email -->
+                <div class="space-y-1.5">
+                  <label for="contact-email" class="block text-xs font-semibold uppercase tracking-wider text-slate-300">
+                    Email Address <span class="text-emerald-400">*</span>
+                  </label>
+                  <input 
+                    type="email" 
+                    id="contact-email" 
+                    required 
+                    placeholder="alex@company.com" 
+                    class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-colors"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <!-- Phone -->
+                <div class="space-y-1.5">
+                  <label for="contact-phone" class="block text-xs font-semibold uppercase tracking-wider text-slate-300">
+                    Phone / WhatsApp Number
+                  </label>
+                  <input 
+                    type="tel" 
+                    id="contact-phone" 
+                    placeholder="+92 300 1234567" 
+                    class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-colors"
+                  />
+                </div>
+
+                <!-- Service Selection -->
+                <div class="space-y-1.5">
+                  <label for="contact-service" class="block text-xs font-semibold uppercase tracking-wider text-slate-300">
+                    Service Required <span class="text-emerald-400">*</span>
+                  </label>
+                  <select 
+                    id="contact-service" 
+                    required 
+                    class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-xs focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-colors"
+                  >
+                    <option value="" disabled selected>Select a project domain...</option>
+                    <option value="Custom Web App Development">Custom Web App Development</option>
+                    <option value="Medical &amp; Healthcare Portals">Medical &amp; Healthcare Portals</option>
+                    <option value="Commercial Cleaning Agency Platforms">Commercial Cleaning Agency Platforms</option>
+                    <option value="Real Estate &amp; Architectural Web Apps">Real Estate &amp; Architectural Web Apps</option>
+                    <option value="UI/UX Glassmorphism Design">UI/UX Glassmorphism Design</option>
+                    <option value="Financial &amp; Trading Web Systems">Financial &amp; Trading Web Systems</option>
+                    <option value="General Consultation">General Agency Consultation</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div class="space-y-1.5">
+                <label for="contact-message" class="block text-xs font-semibold uppercase tracking-wider text-slate-300">
+                  Project Details &amp; Scope <span class="text-emerald-400">*</span>
+                </label>
+                <textarea 
+                  id="contact-message" 
+                  rows="4" 
+                  required 
+                  placeholder="Describe your project, deadlines, target audience, and preferred deliverables..." 
+                  class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition-colors resize-none"
+                ></textarea>
+              </div>
+
+              <!-- Submit Action Button -->
+              <button 
+                type="submit" 
+                id="submit-contact-btn" 
+                class="w-full py-4 text-xs font-bold uppercase tracking-wider text-slate-900 bg-emerald-400 hover:bg-emerald-300 rounded-xl transition-all btn-neon-glow flex items-center justify-center gap-2"
+              >
+                <span id="submit-btn-text">Send Message to Syed Muhammad Umer</span>
+                <i id="submit-btn-icon" class="fa-solid fa-paper-plane text-xs"></i>
+              </button>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Interactive Project Inspection & Demo Modal -->
+  <div id="project-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="relative w-full max-w-2xl glass-panel rounded-3xl border border-slate-700 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+      
+      <!-- Modal Header -->
+      <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between bg-slate-900/80">
+        <div class="flex items-center gap-3">
+          <div id="modal-icon" class="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <div>
+            <h3 id="modal-title" class="text-base font-bold text-white">Project Case Study</h3>
+            <span id="modal-category" class="text-xs text-slate-400">SU Digital Deliverable</span>
+          </div>
+        </div>
+        <button onclick="closeProjectModal()" class="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-300 hover:text-white transition-colors" aria-label="Close modal">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body Content -->
+      <div id="modal-body" class="p-6 overflow-y-auto space-y-5 text-xs text-slate-300">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-4 border-t border-slate-800 bg-slate-900/60 flex items-center justify-between">
+        <span class="text-[11px] text-slate-500">Built by SU Digital · Syed Muhammad Umer</span>
+        <button onclick="closeProjectModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-white transition-colors">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Contact Form Submission Success Modal -->
+  <div id="success-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="w-full max-w-md glass-panel rounded-3xl border border-emerald-500/40 p-6 space-y-5 text-center shadow-2xl">
+      <div class="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-400 mx-auto flex items-center justify-center text-emerald-400 text-2xl animate-bounce">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-white">Message Dispatched!</h3>
+        <p class="text-xs text-slate-300 mt-2 leading-relaxed" id="success-modal-message">
+          Thank you for reaching out. Your project inquiry has been queued directly for Syed Muhammad Umer. We will contact you shortly.
+        </p>
+      </div>
+      <div class="pt-2 flex flex-col gap-2">
+        <a id="whatsapp-quick-send" href="https://wa.me/923141114626" target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-emerald-400 text-slate-900 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 btn-neon-glow">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>Continue Discussion on WhatsApp</span>
+        </a>
+        <button onclick="closeSuccessModal()" class="py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300">
+          Dismiss
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="border-t border-slate-800/80 bg-[#070B11] text-slate-400 text-xs relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <!-- Brand Summary with Logo -->
+        <div class="space-y-4 md:col-span-2">
+          <div class="flex items-center gap-3">
+            <div class="relative w-10 h-10 rounded-full p-0.5 bg-gradient-to-tr from-emerald-500/80 via-emerald-400 to-cyan-400 shadow-[0_0_15px_rgba(0,255,135,0.35)] flex items-center justify-center overflow-hidden">
+              <img 
+                src="file_000000005424821197fdec5f31859ce8.png" 
+                alt="SU Digital Logo" 
+                class="w-full h-full object-contain rounded-full bg-[#0B0F17]"
+                onerror="this.onerror=null; this.src='logo.svg';"
+              />
+            </div>
+            <div>
+              <span class="text-lg font-bold text-white tracking-tight">SU Digital</span>
+              <span class="block text-[11px] text-slate-500">Web Development Agency · Founded by Syed Muhammad Umer</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 max-w-md leading-relaxed">
+            Delivering bespoke full-stack applications, medical booking engines, high-speed gaming hubs, and modern glassmorphic web architectures.
+          </p>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white">Navigation</h4>
+          <ul class="space-y-2">
+            <li><a href="#home" onclick="navigateTo('home'); return false;" class="hover:text-emerald-400 transition-colors">Home View</a></li>
+            <li><a href="#about" onclick="navigateTo('about'); return false;" class="hover:text-emerald-400 transition-colors">About Syed Muhammad Umer</a></li>
+            <li><a href="#services" onclick="navigateTo('services'); return false;" class="hover:text-emerald-400 transition-colors">Services &amp; Solutions</a></li>
+            <li><a href="#skills" onclick="navigateTo('skills'); return false;" class="hover:text-emerald-400 transition-colors">Skills &amp; Competencies</a></li>
+            <li><a href="#projects" onclick="navigateTo('projects'); return false;" class="hover:text-emerald-400 transition-colors">8 Showcase Projects</a></li>
+            <li><a href="#contact" onclick="navigateTo('contact'); return false;" class="hover:text-emerald-400 transition-colors">Contact &amp; Inquiries</a></li>
+          </ul>
+        </div>
+
+        <!-- Verified Contact -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white">Agency Details</h4>
+          <ul class="space-y-2 font-mono text-[11px]">
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-phone text-emerald-400"></i>
+              <a href="tel:03141114626" class="hover:text-white transition-colors">03141114626</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-regular fa-envelope text-emerald-400"></i>
+              <a href="mailto:syedumer.digital@gmail.com" class="hover:text-white transition-colors truncate">syedumer.digital@gmail.com</a>
+            </li>
+            <li class="flex items-center gap-2 text-slate-400 font-sans">
+              <i class="fa-solid fa-location-dot text-emerald-400"></i>
+              <span>Karachi, Pakistan</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <p>&copy; 2026 SU Digital (Syed Muhammad Umer). All Rights Reserved.</p>
+        <div class="flex items-center gap-4 text-xs">
+          <a href="https://wa.me/923141114626" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="mailto:syedumer.digital@gmail.com" class="hover:text-emerald-400 transition-colors"><i class="fa-regular fa-envelope"></i></a>
+          <a href="tel:03141114626" class="hover:text-emerald-400 transition-colors"><i class="fa-solid fa-phone"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- VANILLA JAVASCRIPT CONTROLLER              -->
+  <!-- ========================================== -->
+  <script>
+    // Project Dataset (8 Projects)
+    const PROJECTS_DATA = {
+      1: {
+        title: "Gaming Platform Interface",
+        category: "Web Apps & Esports",
+        icon: "fa-gamepad",
+        iconColor: "text-emerald-400",
+        description: "Dark-mode cyber tournament hub with live scoreboards, match brackets, real-time participant leaderboards, and audio telemetry.",
+        architecture: "Engineered with vanilla JavaScript DOM state synchronization, CSS Grid cyber layout, and high-contrast neon accents. Zero runtime dependency overhead allows 60FPS fluid UI updates even during high-frequency score updates.",
+        features: [
+          "Live match tournament bracket visualizer with dynamic round progression",
+          "Real-time countdown timer to major seasonal tournaments",
+          "Player MVP card inspector with combat K/D stats and avatar frames",
+          "Cyberpunk neon interface optimized for dark gaming environments"
+        ],
+        demoType: "game"
+      },
+      2: {
+        title: "Personal Portfolio & Agency Platform",
+        category: "Agency Branding",
+        icon: "fa-laptop-code",
+        iconColor: "text-cyan-400",
+        description: "Flagship multi-page glassmorphism platform for SU Digital, featuring dynamic client routing, zero page reloads, and neon green aesthetics.",
+        architecture: "Single-file standalone architecture utilizing client-side history hash synchronization, Tailwind CSS CDN, and modular view mounting. Demonstrates the pinnacle of modern Vanilla JS performance.",
+        features: [
+          "Seamless hash-based tab navigation with zero network round trips",
+          "Glowing neon green borders with backdrop-filter blur support",
+          "Integrated 8-project case study modal and interactive testbeds",
+          "Automated WhatsApp dispatch and client inquiry validation"
+        ],
+        demoType: "agency"
+      },
+      3: {
+        title: "Restaurant Web App",
+        category: "Hospitality & Booking",
+        icon: "fa-utensils",
+        iconColor: "text-amber-400",
+        description: "Luxury digital menu and table booking platform with dietary filters, reservation engine, and real-time seating capacity calculator.",
+        architecture: "Custom date/time booking algorithm preventing double bookings. Features instant bill estimation and chef's special recommendations based on party size.",
+        features: [
+          "Categorized culinary catalog (Appetizers, Mains, Chef's Table, Desserts)",
+          "Dietary switchers: Vegan, Gluten-Free, Halal Certified",
+          "Interactive party size calculator with automated seating assignment",
+          "Real-time reservation summary with SMS/WhatsApp confirmation hooks"
+        ],
+        demoType: "restaurant"
+      },
+      4: {
+        title: "Nexus E-Commerce Store",
+        category: "E-Commerce & Retail",
+        icon: "fa-headphones",
+        iconColor: "text-purple-400",
+        description: "High-end audio and smart wearables storefront with client-side cart engine, promo discount logic, and slide-out cart drawer.",
+        architecture: "State-driven cart store built in pure vanilla JS. Updates totals, tax, and shipping live as users adjust product quantities and colors.",
+        features: [
+          "Slide-out shopping bag drawer with instant item quantity counters",
+          "Acoustic frequency response visualizer for flagship headphones",
+          "Multi-currency support and discount code coupon calculator",
+          "Simulated frictionless 1-click checkout pipeline"
+        ],
+        demoType: "ecommerce"
+      },
+      5: {
+        title: "Luxury Real Estate Showcase",
+        category: "PropTech & Real Estate",
+        icon: "fa-house-chimney-window",
+        iconColor: "text-emerald-400",
+        description: "Premium property listing platform with interactive price filters, bedroom selectors, virtual tour modal, and direct broker contact.",
+        architecture: "High-performance client-side filtering matrix querying multidimensional property attributes without lag. High-resolution modal lightbox viewer.",
+        features: [
+          "Multi-parameter filtering (Bedrooms, Price range, Property type)",
+          "Square-footage price calculator and estimated monthly mortgage metric",
+          "Floor plan blueprint modal and neighborhood amenities list",
+          "Instant agent WhatsApp consultation link generation"
+        ],
+        demoType: "realestate"
+      },
+      6: {
+        title: "Modern Architecture & Interior Studio",
+        category: "Design & Architecture",
+        icon: "fa-compass-drafting",
+        iconColor: "text-cyan-400",
+        description: "Luxury architectural layout with bento grid stats, blueprint overlays, minimalist editorial typography, and space optimization index.",
+        architecture: "Bento box modular design architecture with strict typographic hierarchy, high-contrast imagery containers, and project material specifications.",
+        features: [
+          "Bento layout featuring space efficiency metrics and project timelines",
+          "Interactive material swatch palette inspector (Concrete, Teak, Steel)",
+          "High-contrast editorial typography inspired by architectural monographs",
+          "Client blueprint submission and feasibility review inquiry portal"
+        ],
+        demoType: "architecture"
+      },
+      7: {
+        title: "Medical Doctor's Practice & Booking Portal",
+        category: "Healthcare & Telemed",
+        icon: "fa-stethoscope",
+        iconColor: "text-teal-400",
+        description: "Doctor's personal portfolio with appointment scheduling, patient intake triage, verified credentials, and tele-health consultation slot selector.",
+        architecture: "Clean, accessible, HIPAA-conscious patient appointment workflow with calendar date picker, morning/evening slots, and medical specialty filters.",
+        features: [
+          "Interactive appointment calendar with dynamic morning & evening slots",
+          "Patient preliminary intake form with chief complaint categorization",
+          "Doctor credentials, hospital affiliations, and verified patient reviews",
+          "Emergency instant telephone dialer and tele-health video link generator"
+        ],
+        demoType: "medical"
+      },
+      8: {
+        title: "Commercial Cleaning Agency Platform",
+        category: "Field Service Tech",
+        icon: "fa-spray-can-sparkles",
+        iconColor: "text-emerald-400",
+        description: "Service booking & quote calculator app with square footage slider, recurring frequency discounts, and automated dispatch pricing.",
+        architecture: "Dynamic mathematical formula calculator calculating commercial cleaning rates based on square footage, room count, and contract frequency.",
+        features: [
+          "Interactive square-footage slider updating pricing in real time",
+          "Frequency selector: One-time deep clean, Bi-weekly (15% off), Monthly (20% off)",
+          "Add-on service checkboxes (Window washing, Carpet shampooing, Sanitization)",
+          "One-click quote generation sent directly to the dispatch team"
+        ],
+        demoType: "cleaning"
+      }
+    };
+
+    // Navigation Router: Smooth Multi-Page Switching
+    function navigateTo(targetViewId) {
+      const views = document.querySelectorAll('.page-view');
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      let targetFound = false;
+
+      views.forEach(view => {
+        if (view.id === 'view-' + targetViewId) {
+          view.classList.remove('hidden-page');
+          view.classList.add('active');
+          targetFound = true;
+        } else {
+          view.classList.remove('active');
+          view.classList.add('hidden-page');
+        }
+      });
+
+      if (!targetFound) {
+        // Fallback to home if target not found
+        const homeView = document.getElementById('view-home');
+        if (homeView) {
+          homeView.classList.remove('hidden-page');
+          homeView.classList.add('active');
+        }
+        targetViewId = 'home';
+      }
+
+      // Update Desktop Nav Links
+      navLinks.forEach(link => {
+        const indicator = link.querySelector('.nav-indicator');
+        if (link.dataset.target === targetViewId) {
+          link.classList.remove('text-slate-300');
+          link.classList.add('text-emerald-400');
+          if (indicator) indicator.classList.remove('opacity-0');
+        } else {
+          link.classList.remove('text-emerald-400');
+          link.classList.add('text-slate-300');
+          if (indicator) indicator.classList.add('opacity-0');
+        }
+      });
+
+      // Update URL hash without jump
+      if (history.pushState) {
+        history.pushState(null, null, '#' + targetViewId);
+      } else {
+        location.hash = '#' + targetViewId;
+      }
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Hash change handler for browser back/forward buttons
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '') || 'home';
+      navigateTo(hash);
+    });
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu(forceState) {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('mobile-menu-icon');
+      if (!menu) return;
+
+      const shouldOpen = (forceState !== undefined) ? forceState : menu.classList.contains('hidden');
+
+      if (shouldOpen) {
+        menu.classList.remove('hidden');
+        if (icon) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-xmark');
+        }
+      } else {
+        menu.classList.add('hidden');
+        if (icon) {
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+        }
+      }
+    }
+
+    // Skill Filter
+    function filterSkills(category) {
+      const cards = document.querySelectorAll('.skill-card');
+      const tabs = document.querySelectorAll('.skill-tab-btn');
+
+      tabs.forEach(tab => {
+        tab.classList.remove('active', 'bg-emerald-400', 'text-slate-900');
+        tab.classList.add('text-slate-400');
+      });
+
+      const clickedTab = event ? event.target.closest('button') : null;
+      if (clickedTab) {
+        clickedTab.classList.add('active', 'bg-emerald-400', 'text-slate-900');
+        clickedTab.classList.remove('text-slate-400');
+      }
+
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Projects Filter
+    function filterProjects(category) {
+      const cards = document.querySelectorAll('.project-card');
+      const tabs = document.querySelectorAll('.project-filter-btn');
+
+      tabs.forEach(tab => {
+        tab.classList.remove('active', 'bg-emerald-400', 'text-slate-900');
+        tab.classList.add('text-slate-400');
+      });
+
+      const clickedTab = event ? event.target.closest('button') : null;
+      if (clickedTab) {
+        clickedTab.classList.add('active', 'bg-emerald-400', 'text-slate-900');
+        clickedTab.classList.remove('text-slate-400');
+      }
+
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Service Inquire Pre-fill Shortcut
+    function prefillContactService(serviceName) {
+      navigateTo('contact');
+      setTimeout(() => {
+        const select = document.getElementById('contact-service');
+        if (select) {
+          for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].value === serviceName) {
+              select.selectedIndex = i;
+              break;
+            }
+          }
+        }
+        const textarea = document.getElementById('contact-message');
+        if (textarea) {
+          textarea.value = `Hello Syed Muhammad Umer, I am interested in inquiring about "${serviceName}" for our agency.`;
+          textarea.focus();
+        }
+      }, 100);
+    }
+
+    // Project Case Study Modal
+    function openProjectModal(projectId) {
+      const project = PROJECTS_DATA[projectId];
+      if (!project) return;
+
+      const modal = document.getElementById('project-modal');
+      const modalTitle = document.getElementById('modal-title');
+      const modalCategory = document.getElementById('modal-category');
+      const modalIcon = document.getElementById('modal-icon');
+      const modalBody = document.getElementById('modal-body');
+
+      modalTitle.textContent = project.title;
+      modalCategory.textContent = project.category;
+      modalIcon.innerHTML = `<i class="fa-solid ${project.icon} ${project.iconColor}"></i>`;
+
+      modalBody.innerHTML = `
+        <div class="space-y-4">
+          <div>
+            <h4 class="text-sm font-bold text-white mb-1">Executive Summary</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">${project.description}</p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800">
+            <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">Technical Architecture</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">${project.architecture}</p>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-bold text-white mb-2">Key Production Deliverables</h4>
+            <ul class="space-y-1.5 text-xs text-slate-300">
+              ${project.features.map(f => `
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-check-circle text-emerald-400 mt-0.5"></i>
+                  <span>${f}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+
+          <div class="pt-2 flex items-center justify-between border-t border-slate-800">
+            <span class="text-slate-400">Ready to build a similar platform?</span>
+            <button onclick="closeProjectModal(); prefillContactService('${project.title}');" class="px-3 py-1.5 rounded-lg bg-emerald-400 text-slate-900 font-bold text-xs uppercase tracking-wider hover:bg-emerald-300 transition-colors">
+              Request Similar Build
+            </button>
+          </div>
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeProjectModal() {
+      const modal = document.getElementById('project-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // Interactive Demo Launcher in Modal
+    function openProjectDemo(projectId) {
+      const project = PROJECTS_DATA[projectId];
+      if (!project) return;
+
+      const modal = document.getElementById('project-modal');
+      const modalTitle = document.getElementById('modal-title');
+      const modalCategory = document.getElementById('modal-category');
+      const modalIcon = document.getElementById('modal-icon');
+      const modalBody = document.getElementById('modal-body');
+
+      modalTitle.textContent = project.title + " · Interactive Sandbox";
+      modalCategory.textContent = "Live Simulated Feature Demo";
+      modalIcon.innerHTML = `<i class="fa-solid fa-play text-emerald-400"></i>`;
+
+      let demoHTML = '';
+
+      if (project.demoType === 'cleaning') {
+        demoHTML = `
+          <div class="space-y-4 p-4 rounded-2xl bg-slate-900/90 border border-emerald-500/30">
+            <h4 class="text-sm font-bold text-white">Live Commercial Quote Calculator</h4>
+            <div class="space-y-2">
+              <div class="flex justify-between text-xs">
+                <span>Facility Size (Square Footage):</span>
+                <span id="sqft-val" class="text-emerald-400 font-mono font-bold">2,500 sq ft</span>
+              </div>
+              <input type="range" id="sqft-slider" min="500" max="10000" step="250" value="2500" class="w-full accent-emerald-400" oninput="updateCleaningQuote()" />
+            </div>
+            <div class="grid grid-cols-3 gap-2 text-xs pt-2">
+              <label class="p-2 rounded-xl border border-slate-700 cursor-pointer flex flex-col items-center text-center">
+                <input type="radio" name="clean-freq" value="1.0" checked onchange="updateCleaningQuote()" />
+                <span class="mt-1 font-semibold text-white">One-Time</span>
+                <span class="text-[10px] text-slate-400">Standard</span>
+              </label>
+              <label class="p-2 rounded-xl border border-slate-700 cursor-pointer flex flex-col items-center text-center">
+                <input type="radio" name="clean-freq" value="0.85" onchange="updateCleaningQuote()" />
+                <span class="mt-1 font-semibold text-white">Bi-Weekly</span>
+                <span class="text-[10px] text-emerald-400">Save 15%</span>
+              </label>
+              <label class="p-2 rounded-xl border border-slate-700 cursor-pointer flex flex-col items-center text-center">
+                <input type="radio" name="clean-freq" value="0.80" onchange="updateCleaningQuote()" />
+                <span class="mt-1 font-semibold text-white">Monthly</span>
+                <span class="text-[10px] text-emerald-400">Save 20%</span>
+              </label>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between">
+              <div>
+                <span class="text-[11px] text-slate-400 block">Estimated Service Fee</span>
+                <span id="cleaning-total" class="text-xl font-bold font-mono text-emerald-400">$375.00</span>
+              </div>
+              <button onclick="alert('Simulation: Dispatch request dispatched for ' + document.getElementById('sqft-val').innerText)" class="px-4 py-2 rounded-xl bg-emerald-400 text-slate-900 font-bold text-xs uppercase tracking-wider">
+                Lock Estimate
+              </button>
+            </div>
+          </div>
+        `;
+      } else if (project.demoType === 'restaurant') {
+        demoHTML = `
+          <div class="space-y-4 p-4 rounded-2xl bg-slate-900/90 border border-amber-500/30">
+            <h4 class="text-sm font-bold text-white">Table Booking &amp; Party Size Simulator</h4>
+            <div class="grid grid-cols-2 gap-3 text-xs">
+              <div>
+                <label class="block text-slate-400 mb-1">Select Seating Date:</label>
+                <input type="date" value="2026-10-18" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white" />
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1">Guests Count:</label>
+                <select id="restaurant-guests" onchange="updateRestaurantTable()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white">
+                  <option value="2">2 Guests (Intimate Table)</option>
+                  <option value="4" selected>4 Guests (Booth Seating)</option>
+                  <option value="8">8 Guests (Chef's Long Table)</option>
+                </select>
+              </div>
+            </div>
+            <div id="restaurant-table-status" class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs flex items-center justify-between">
+              <span>Seating Status: <strong class="text-emerald-400">Booth #4 Available</strong></span>
+              <span class="text-slate-400">Complimentary Welcome Drink</span>
+            </div>
+            <button onclick="alert('Reservation Confirmed for ' + document.getElementById('restaurant-guests').value + ' Guests!')" class="w-full py-2.5 rounded-xl bg-amber-400 text-slate-900 font-bold text-xs uppercase tracking-wider">
+              Simulate Instant Reservation
+            </button>
+          </div>
+        `;
+      } else if (project.demoType === 'ecommerce') {
+        demoHTML = `
+          <div class="space-y-4 p-4 rounded-2xl bg-slate-900/90 border border-purple-500/30">
+            <h4 class="text-sm font-bold text-white">Nexus Audio Cart &amp; Spec Engine</h4>
+            <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-headphones text-2xl text-purple-400"></i>
+                <div>
+                  <h5 class="font-bold text-white">Nexus Pro ANC Wireless</h5>
+                  <p class="text-[11px] text-slate-400">Matte Cyber Black · 40mm Drivers</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="block font-mono font-bold text-purple-400 text-sm">$299.00</span>
+                <span class="text-[10px] text-emerald-400">In Stock</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-xs pt-1">
+              <span>Active Noise Cancellation: <strong class="text-white">-38dB Hybrid</strong></span>
+              <span>Battery: <strong class="text-white">45 Hours</strong></span>
+            </div>
+            <button onclick="alert('Item added to simulated Nexus cart drawer! Subtotal: $299.00')" class="w-full py-2.5 rounded-xl bg-purple-400 text-slate-900 font-bold text-xs uppercase tracking-wider">
+              Add to Simulated Bag
+            </button>
+          </div>
+        `;
+      } else {
+        demoHTML = `
+          <div class="space-y-4 p-4 rounded-2xl bg-slate-900/90 border border-emerald-500/30">
+            <h4 class="text-sm font-bold text-white">${project.title} - Live Architecture Testbed</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">${project.architecture}</p>
+            <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono text-emerald-400 flex items-center justify-between">
+              <span>Status: PRODUCTION_ACTIVE</span>
+              <span>Latency: 18ms</span>
+            </div>
+            <button onclick="closeProjectModal(); prefillContactService('${project.title}');" class="w-full py-2.5 rounded-xl bg-emerald-400 text-slate-900 font-bold text-xs uppercase tracking-wider">
+              Inquire Full Source &amp; Architecture
+            </button>
+          </div>
+        `;
+      }
+
+      modalBody.innerHTML = demoHTML;
+      modal.classList.remove('hidden');
+    }
+
+    // Cleaning Calculator Formula
+    function updateCleaningQuote() {
+      const slider = document.getElementById('sqft-slider');
+      const valLabel = document.getElementById('sqft-val');
+      const totalLabel = document.getElementById('cleaning-total');
+      if (!slider || !valLabel || !totalLabel) return;
+
+      const sqft = parseInt(slider.value, 10);
+      valLabel.innerText = Number(sqft).toLocaleString() + ' sq ft';
+
+      let freqDiscount = 1.0;
+      const radios = document.getElementsByName('clean-freq');
+      for (let r of radios) {
+        if (r.checked) {
+          freqDiscount = parseFloat(r.value);
+          break;
+        }
+      }
+
+      // Base: $0.15 per sqft with volume scaling
+      const baseFee = sqft * 0.15;
+      const total = baseFee * freqDiscount;
+      totalLabel.innerText = '$' + total.toFixed(2);
+    }
+
+    function updateRestaurantTable() {
+      const guests = document.getElementById('restaurant-guests').value;
+      const status = document.getElementById('restaurant-table-status');
+      if (!status) return;
+
+      if (guests === '2') {
+        status.innerHTML = `<span>Seating Status: <strong class="text-emerald-400">Intimate Table #12 Available</strong></span><span class="text-slate-400">Candlelight Seating</span>`;
+      } else if (guests === '4') {
+        status.innerHTML = `<span>Seating Status: <strong class="text-emerald-400">Booth #4 Available</strong></span><span class="text-slate-400">Complimentary Welcome Drink</span>`;
+      } else {
+        status.innerHTML = `<span>Seating Status: <strong class="text-emerald-400">Chef's Table Available</strong></span><span class="text-slate-400">Pre-set 5-Course Tasting</span>`;
+      }
+    }
+
+    // Local Photo Picker Preview handler
+    function previewUserPhoto(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const heroImg = document.getElementById('hero-profile-image');
+        if (heroImg) {
+          heroImg.src = e.target.result;
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Interactive Working Contact Form Handler
+    function handleContactSubmit(event) {
+      event.preventDefault();
+      
+      const submitBtn = document.getElementById('submit-contact-btn');
+      const btnText = document.getElementById('submit-btn-text');
+      const btnIcon = document.getElementById('submit-btn-icon');
+
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const phone = document.getElementById('contact-phone').value.trim();
+      const service = document.getElementById('contact-service').value;
+      const message = document.getElementById('contact-message').value.trim();
+
+      if (!name || !email || !message) {
+        alert('Please complete all required fields.');
+        return;
+      }
+
+      // Realistic Button Loading State
+      submitBtn.disabled = true;
+      btnText.textContent = 'Encrypting & Dispatching...';
+      btnIcon.className = 'fa-solid fa-spinner fa-spin text-xs';
+
+      setTimeout(() => {
+        // Reset button
+        submitBtn.disabled = false;
+        btnText.textContent = 'Send Message to Syed Muhammad Umer';
+        btnIcon.className = 'fa-solid fa-paper-plane text-xs';
+
+        // Prepare WhatsApp link with pre-filled message
+        const waText = encodeURIComponent(`*New Project Inquiry for SU Digital*\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\n\nMessage: ${message}`);
+        const waLink = `https://wa.me/923141114626?text=${waText}`;
+        const waButton = document.getElementById('whatsapp-quick-send');
+        if (waButton) {
+          waButton.href = waLink;
+        }
+
+        // Show Success Modal
+        const successModal = document.getElementById('success-modal');
+        const successMsg = document.getElementById('success-modal-message');
+        if (successMsg) {
+          successMsg.innerHTML = `Thank you, <strong class="text-white">${name}</strong>! Your inquiry regarding <strong class="text-emerald-400">${service || 'Web Development'}</strong> has been received. Syed Muhammad Umer will follow up at <strong class="text-white">${email}</strong> shortly.`;
+        }
+        if (successModal) {
+          successModal.classList.remove('hidden');
+        }
+
+        // Reset form
+        document.getElementById('agency-contact-form').reset();
+      }, 700);
+    }
+
+    function closeSuccessModal() {
+      const successModal = document.getElementById('success-modal');
+      if (successModal) successModal.classList.add('hidden');
+    }
+
+    // Close modals on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeProjectModal();
+        closeSuccessModal();
+      }
+    });
+
+    // Close modals on clicking backdrop
+    window.addEventListener('click', (e) => {
+      const projectModal = document.getElementById('project-modal');
+      const successModal = document.getElementById('success-modal');
+      if (e.target === projectModal) closeProjectModal();
+      if (e.target === successModal) closeSuccessModal();
+    });
+
+    // Initialize View based on URL Hash on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const initialHash = window.location.hash.replace('#', '') || 'home';
+      navigateTo(initialHash);
+    });
+  </script>
+
+</body>
+</html>

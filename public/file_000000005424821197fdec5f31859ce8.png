@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#071a14" />
+      <stop offset="70%" stop-color="#0b0f17" />
+      <stop offset="100%" stop-color="#06090e" />
+    </radialGradient>
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur1" />
+      <feGaussianBlur stdDeviation="16" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Outer Circular Base -->
+  <circle cx="250" cy="250" r="240" fill="url(#bgGlow)" stroke="#00FF87" stroke-width="4" stroke-opacity="0.25" />
+  
+  <!-- Neon Interwoven Monogram S & U -->
+  <g filter="url(#neonGlow)">
+    <!-- Diagonal Slash Line -->
+    <line x1="160" y1="265" x2="335" y2="105" stroke="#00FF87" stroke-width="8" stroke-linecap="round" />
+    
+    <!-- Outer U Shape -->
+    <path d="M 188 245 C 190 305, 235 315, 275 310 C 315 305, 330 270, 330 145" 
+          fill="none" stroke="#00FF87" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- Top-Mid S Curves -->
+    <path d="M 275 125 C 215 120, 185 145, 185 180 C 185 220, 280 215, 275 265 C 270 300, 235 300, 205 285" 
+          fill="none" stroke="#00FF87" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  
+  <!-- Core White / Bright Highlight Stroke -->
+  <g>
+    <line x1="160" y1="265" x2="335" y2="105" stroke="#E6FFF2" stroke-width="3" stroke-linecap="round" />
+    <path d="M 188 245 C 190 305, 235 315, 275 310 C 315 305, 330 270, 330 145" 
+          fill="none" stroke="#E6FFF2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M 275 125 C 215 120, 185 145, 185 180 C 185 220, 280 215, 275 265 C 270 300, 235 300, 205 285" 
+          fill="none" stroke="#E6FFF2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Typography: SU Digital -->
+  <text x="250" y="375" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="38" font-weight="800" fill="#FFFFFF" letter-spacing="1.5">
+    SU Digital
+  </text>
+  
+  <!-- Typography: Web Development Agency -->
+  <text x="250" y="415" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="500" fill="#94A3B8" letter-spacing="1">
+    Web Development Agency
+  </text>
+</svg>
